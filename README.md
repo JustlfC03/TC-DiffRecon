@@ -1,2 +1,55 @@
-# TC-Diffuserecon
-TC-Diffuserecon: Texture coordination MRI reconstruction method based on diffusion model and modified MF-UNet method
+## TC-DiffRecon
+
+This codebase is modified based on [Improved DDPM](https://github.com/openai/improved-diffusion)
+
+Overall structure of the TC-DiffRecon:
+![image](img/model.png)
+
+C2F Sampling Process:
+![image](img/structure.png)
+
+Model renderings:
+![image](img/renderings.png)
+
+## Installation
+
+Clone this repository and navigate to it in your terminal. Then run:
+
+```
+pip install -e .
+```
+
+This should install the `improved_diffusion` python package that the scripts depend on.
+
+## Data Preparation and Pre-Trained Checkpoints
+
+A pre-trained checkpoint can be downloaded via this [link](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/cpeng26_jh_edu/ESGvudC6-ZlApb5xmkmDVzoBVk3Fn1QHXMFxBEvkayulgQ?e=5Xcjfv) or [link](https://drive.google.com/file/d/1rii1GJXW6pZNu3vajDcJe9huFrsX9zBS/view?usp=sharing).
+
+
+For FastMRI, the simplified h5 data can be downloaded by following the instructions in [ReconFormer](https://github.com/guopengf/ReconFormer), i.e. through [Link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/pguo4_jh_edu/EtXsMeyrJB1Pn-JOjM_UqhUBdY1KPrvs-PwF2fW7gERKIA?e=uuBINy). DiffuseRecon converts it to a normalized format in scripts/data_process.py
+
+```
+python scripts/data_process.py
+```
+
+
+
+## Sampling
+
+```
+python scripts/image_sample_complex_duo.py --model_path img_space_dual/ema_0.9999_150000.pt --data_path EVAL_PATH \
+--image_size 320 --num_channels 128 --num_res_blocks 3 --learn_sigma False --dropout 0.3 --diffusion_steps 4000 \
+--noise_schedule cosine --timestep_respacing 100 --save_path test/ --num_samples 1 --batch_size 5
+```
+Note that timestep_respacing indicates the initial coarse sampling steps. 
+## Training
+
+```
+mpiexec -n GPU_NUMS python scripts/image_train.py --data_dir TRAIN_PATH --image_size 320 --num_channels 128\
+ --num_res_blocks 3 --learn_sigma False --dropout 0.3 --diffusion_steps 4000 --noise_schedule cosine --lr 1e-4 --batch_size 1\
+--save_dir img_space_dual
+```
+## TODO
+- Upload PSNR evaluation
+- Currently, the refinement step is fixed at 20 (line 592, gaussian_diffusion_duo.py); make this an adjustable input.
+- Graphics.
