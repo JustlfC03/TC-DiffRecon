@@ -3,12 +3,15 @@
 This codebase is modified based on [Improved DDPM](https://github.com/openai/improved-diffusion)
 
 Overall structure of the TC-DiffRecon:
+
 ![image](img/model.png)
 
 C2F Sampling Process:
+
 ![image](img/structure.png)
 
 Model renderings:
+
 ![image](img/renderings.png)
 
 ## Installation
