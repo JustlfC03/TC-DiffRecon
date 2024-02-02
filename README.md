@@ -4,15 +4,15 @@ This codebase is modified based on [Improved DDPM](https://github.com/openai/imp
 
 Overall structure of the TC-DiffRecon:
 
-![image](img/model.png)
+![model](img/model.png)
 
 C2F Sampling Process:
 
-![image](img/structure.png)
+![structure](img/structure.png)
 
 Model renderings:
 
-![image](img/renderings.png)
+![renderings](img/renderings.png)
 
 ## 1. Installation
 
