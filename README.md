@@ -26,7 +26,7 @@ This should install the `improved_diffusion` python package that the scripts dep
 
 ## 2. Data Preparation
 
-For FastMRI, the simplified h5 data can be downloaded by following the instructions in [ReconFormer](https://github.com/guopengf/ReconFormer), i.e. through [Link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/pguo4_jh_edu/EtXsMeyrJB1Pn-JOjM_UqhUBdY1KPrvs-PwF2fW7gERKIA?e=uuBINy). DiffuseRecon converts it to a normalized format in scripts/data_process.py
+For fastMRI, the simplified h5 data can be downloaded by following the instructions in [ReconFormer](https://github.com/guopengf/ReconFormer), i.e. through [Link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/pguo4_jh_edu/EtXsMeyrJB1Pn-JOjM_UqhUB9-QAehQs4cLwomJS2SkpGA?e=IUfPrp), which is the preprocessed fastMRI data. And the passport is: pguo4. DiffuseRecon converts it to a normalized format in scripts/data_process.py: 
 
 ```
 python scripts/data_process.py
