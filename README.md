@@ -51,10 +51,12 @@ mpiexec -n GPU_NUMS python scripts/image_train.py --data_dir TRAIN_PATH --image_
 
 ## 5. Citation
 ```
-@article{zhang2024tc,
-  title={TC-DiffRecon: Texture coordination MRI reconstruction method based on diffusion model and modified MF-UNet method},
-  author={Zhang, Chenyan and Chen, Yifei and Fan, Zhenxiong and Huang, Yiyu and Weng, Wenchao and Ge, Ruiquan and Zeng, Dong and Wang, Changmiao},
-  journal={arXiv preprint arXiv:2402.11274},
-  year={2024}
+@inproceedings{inproceedings,
+author = {Zhang, Chenyan and Chen, Yifei and Fan, Zhenxiong and Huang, Yiyu and Weng, Wenchao and Ge, Ruiquan and Zeng, Dong and Wang, Changmiao},
+year = {2024},
+month = {05},
+pages = {1-5},
+title = {TC-DiffRecon: Texture Coordination MRI Reconstruction Method Based on Diffusion Model and Modified MF-UNet Method},
+doi = {10.1109/ISBI56570.2024.10635308}
 }
 ```
