@@ -32,7 +32,15 @@ For fastMRI, the simplified h5 data can be downloaded by following the instructi
 python scripts/data_process.py
 ```
 
-## 3. Sampling
+## 3. Training
+
+```
+mpiexec -n GPU_NUMS python scripts/image_train.py --data_dir TRAIN_PATH --image_size 320 --num_channels 128\
+ --num_res_blocks 3 --learn_sigma False --dropout 0.3 --diffusion_steps 4000 --noise_schedule cosine --lr 1e-4 --batch_size 1\
+--save_dir img_space_dual
+```
+
+## 4. Sampling
 
 ```
 python scripts/image_sample_complex_duo.py --model_path img_space_dual/ema_0.9999_150000.pt --data_path EVAL_PATH \
@@ -40,14 +48,6 @@ python scripts/image_sample_complex_duo.py --model_path img_space_dual/ema_0.999
 --noise_schedule cosine --timestep_respacing 100 --save_path test/ --num_samples 1 --batch_size 5
 ```
 Note that timestep_respacing indicates the initial coarse sampling steps. 
-
-## 4. Training
-
-```
-mpiexec -n GPU_NUMS python scripts/image_train.py --data_dir TRAIN_PATH --image_size 320 --num_channels 128\
- --num_res_blocks 3 --learn_sigma False --dropout 0.3 --diffusion_steps 4000 --noise_schedule cosine --lr 1e-4 --batch_size 1\
---save_dir img_space_dual
-```
 
 ## 5. Citation
 ```
